@@ -39,6 +39,7 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+//user class renamed to appuser because user is a keyword in postgresql
 public class AppUser {
 
     @Id // Marks this field as the primary key
