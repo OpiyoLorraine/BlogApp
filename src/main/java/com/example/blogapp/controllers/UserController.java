@@ -1,6 +1,6 @@
 package com.example.blogapp.controllers;
 
-import com.example.blogapp.models.entities.User;
+import com.example.blogapp.models.entities.AppUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,18 +12,18 @@ import java.util.List;
 public class UserController {
 
     // In-memory list to simulate a database
-    private final List<User> users = new ArrayList<>();
+    private final List<AppUser> users = new ArrayList<>();
 
     // Endpoint to get all users (simulating data retrieval from a DB)...or rather a GET request
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<AppUser> getAllUsers() {
         return users;  // Returning all users from the in-memory list
     }
     //find the users at http://localhost:8080/users
 
     // Endpoint to add a new user (simulating saving data in a DB)...or rather a POST Request
     @PostMapping
-    public User addUser(@RequestBody User user) {
+    public AppUser addUser(@RequestBody AppUser user) {
         // Adding the user to the in-memory list (in real apps, this would save to a database)
         users.add(user);
         return user;  // Returning the added user
