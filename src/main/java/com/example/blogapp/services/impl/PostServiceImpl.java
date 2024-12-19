@@ -1,5 +1,6 @@
 package com.example.blogapp.services.impl;
 
+import com.example.blogapp.exceptions.ResourceNotFoundException;
 import com.example.blogapp.models.dtos.PostDto;
 import com.example.blogapp.models.entities.Post;
 import com.example.blogapp.repositories.PostRepository;
@@ -34,6 +35,12 @@ public class PostServiceImpl implements PostService {
 
         List<Post> posts = postRepository.findAll();
         return posts.stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+    }
+
+    @Override
+    public PostDto getPostById(long id) {
+        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+        return mapToDto(post);
     }
 
     //convert entity to Dto
