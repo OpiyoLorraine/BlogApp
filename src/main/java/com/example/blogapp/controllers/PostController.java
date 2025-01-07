@@ -2,6 +2,7 @@ package com.example.blogapp.controllers;
 
 import com.example.blogapp.models.dtos.PostDto;
 import com.example.blogapp.services.PostService;
+import com.example.blogapp.models.dtos.PostResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class PostController {
     }
     //get all posts
     @GetMapping
-    public List<PostDto> getAllPosts(
+    public PostResponse getAllPosts(
             @RequestParam(value = "pageNo", defaultValue = "0", required = false)int pageNo,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false)int pageSize
     ) {
